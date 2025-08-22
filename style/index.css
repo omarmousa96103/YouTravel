@@ -117,7 +117,7 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-height: 90vh;
+    max-height: 100vh;
     overflow-y: auto;
 }
 
