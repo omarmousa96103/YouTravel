@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTravel - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/index.css">
+  <script defer src="scripts/login.js"></script>
+   <link rel="icon" type="image/x-icon" href="style/10623610.png">
+</head>
+<body>
+  <div class="container">
+    <!-- Hero section -->
+    <div class="hero-section">
+      <div class="brand-logo">
+        <h1 class="brand-title">YouTravel</h1>
+        <p class="brand-subtitle">Welcome back! Continue your journey with us</p>
+      </div>
+
+      <div class="hero-features">
+        <div class="feature-item">
+          <div class="feature-icon">✈</div>
+          <span>Plan your perfect getaway</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💰</div>
+          <span>Track expenses effortlessly</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌍</div>
+          <span>Discover amazing destinations</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login form -->
+    <div class="form-container">
+      <div class="form-header">
+        <h2 class="form-title">Login to Your Account</h2>
+        <p class="form-subtitle">Happy to see you again traveler 🌍</p>
+      </div>
+
+      <!-- Custom alert -->
+      <div id="login-alert" class="form-alert"></div>
+
+      <form id="login-form" method="POST" action="/api/login">
+        <div class="form-group full-width">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+
+      <p class="login-link">
+        Don’t have an account? <a href="index.html">Sign up here</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YouTravel Dashboard - Manage your trips, track expenses, and discover new destinations">
+    <title>YouTravel - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="style/10623610.png">
+    <script defer src="scripts/dashboard.js"></script>
+</head>
+<body>
+    <!-- Mobile menu toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+            <div class="profile-info">
+                <h2>Hello, User!</h2>
+                <p>user.name@example.com</p>
+                <p class="balance">Balance: <strong>$999</strong></p>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="active" aria-current="page">Dashboard</a></li>
+                    <li><a href="trips.html">Trips</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content" role="main">
+            <!-- Quick Stats -->
+            <section class="stats-section" aria-labelledby="stats-heading">
+                <h1 id="stats-heading" class="sr-only">Travel Statistics</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Total Trips</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Upcoming</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$2,450</span>
+                        <span class="stat-label">Total Spent</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Countries Visited</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upcoming Trips -->
+            <section class="trips-section" aria-labelledby="upcoming-heading">
+                <h1 id="upcoming-heading">Upcoming Trips</h1>
+                <div class="trip-cards-wrapper">
+                    <button class="scroll-arrow left" id="upcomingScrollLeft" aria-label="Scroll to previous trips">
+                        &#8249;
+                    </button>
+                    <div class="trip-cards horizontal-scroll" id="upcomingTrips" role="region" aria-label="Upcoming trips">
+                        <article class="trip-card upcoming">
+                            <h3>Trip to Paris</h3>
+                            <p><time datetime="2025-09-01">September 1, 2025</time></p>
+                            <p>Seats Available: <strong>5</strong></p>
+                            <button class="get-ticket" onclick="bookTrip('paris')" aria-label="Book tickets for Paris trip">
+                                Get Tickets!
+                            </button>
+                        </article>
+                        <article class="trip-card upcoming">
+                            <h3>Trip to Tokyo</h3>
+                            <p><time datetime="2025-10-12">October 12, 2025</time></p>
+                            <p>Seats Available: <strong>8</strong></p>
+                            <button class="get-ticket" onclick="bookTrip('tokyo')" aria-label="Book tickets for Tokyo trip">
+                                Get Tickets!
+                            </button>
+                        </article>
+                        <article class="trip-card upcoming">
+                            <h3>Trip to London</h3>
+                            <p><time datetime="2025-11-05">November 5, 2025</time></p>
+                            <p>Seats Available: <strong>4</strong></p>
+                            <button class="get-ticket" onclick="bookTrip('london')" aria-label="Book tickets for London trip">
+                                Get Tickets!
+                            </button>
+                        </article>
+                        <article class="trip-card upcoming">
+                            <h3>Trip to Dubai</h3>
+                            <p><time datetime="2025-12-20">December 20, 2025</time></p>
+                            <p>Seats Available: <strong>10</strong></p>
+                            <button class="get-ticket" onclick="bookTrip('dubai')" aria-label="Book tickets for Dubai trip">
+                                Get Tickets!
+                            </button>
+                        </article>
+                    </div>
+                    <button class="scroll-arrow right" id="upcomingScrollRight" aria-label="Scroll to next trips">
+                        &#8250;
+                    </button>
+                    <div class="scroll-indicators" id="upcomingIndicators"></div>
+                </div>
+            </section>
+
+            <!-- Previous Trips -->
+            <section class="trips-section" aria-labelledby="previous-heading">
+                <h1 id="previous-heading">Previous Trips</h1>
+                <div class="trip-cards-wrapper">
+                    <button class="scroll-arrow left" id="previousScrollLeft" aria-label="Scroll to previous trips">
+                        &#8249;
+                    </button>
+                    <div class="trip-cards horizontal-scroll" id="previousTrips" role="region" aria-label="Previous trips">
+                        <article class="trip-card previous">
+                            <h3>Trip to Mexico</h3>
+                            <p><time datetime="2024-12-01">December 1, 2024</time></p>
+                            <p>Duration: <strong>7 days</strong></p>
+                            <button class="view-details" onclick="viewTripDetails('mexico')" aria-label="View Mexico trip details">
+                                View Details
+                            </button>
+                        </article>
+                        <article class="trip-card previous">
+                            <h3>Trip to Lebanon</h3>
+                            <p><time datetime="2024-12-12">December 12, 2024</time></p>
+                            <p>Duration: <strong>8 days</strong></p>
+                            <button class="view-details" onclick="viewTripDetails('lebanon')" aria-label="View Lebanon trip details">
+                                View Details
+                            </button>
+                        </article>
+                        <article class="trip-card previous">
+                            <h3>Trip to Spain</h3>
+                            <p><time datetime="2024-11-10">November 10, 2024</time></p>
+                            <p>Duration: <strong>6 days</strong></p>
+                            <button class="view-details" onclick="viewTripDetails('spain')" aria-label="View Spain trip details">
+                                View Details
+                            </button>
+                        </article>
+                        <article class="trip-card previous">
+                            <h3>Trip to Greece</h3>
+                            <p><time datetime="2024-10-20">October 20, 2024</time></p>
+                            <p>Duration: <strong>5 days</strong></p>
+                            <button class="view-details" onclick="viewTripDetails('greece')" aria-label="View Greece trip details">
+                                View Details
+                            </button>
+                        </article>
+                    </div>
+                    <button class="scroll-arrow right" id="previousScrollRight" aria-label="Scroll to next trips">
+                        &#8250;
+                    </button>
+                    <div class="scroll-indicators" id="previousIndicators"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    
+</body>
+</html>
