@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="style/10623610.png">
+    <link rel="stylesheet" href="style/trips.css">
+    <script defer src="/scripts/trip.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>YouTravel - Trips</title>
+</head>
+<body>
+    <!-- Mobile menu toggle -->
+    <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="profile-info">
+                <h2>Welcome Back!</h2>
+                <p>Travel Enthusiast</p>
+                <p>Member since 2023</p>
+                <div class="balance">Balance: $2,450</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="#" class="nav-link active">My Trips</a></li>
+                    <li><a href="settings.html" class="nav-link">Settings</a></li>
+                    <li><a href="login.html" class="nav-link">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header-section">
+                <h1>My Trips</h1>
+                <p class="subtitle">Manage, Search and Find The Trip Of Your Dreams!</p>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search for a trip..." aria-label="Search trips">
+                    <button class="search-btn" aria-label="Search">🔍</button>
+                </div>
+
+                <div class="filter-controls">
+                    <div class="sort-section">
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect" class="sort-dropdown">
+                            <option value="date">Trip Date</option>
+                            <option value="name">Trip Name (A-Z)</option>
+                            <option value="name-desc">Trip Name (Z-A)</option>
+                            <option value="cost-low">Cost (Low to High)</option>
+                            <option value="cost-high">Cost (High to Low)</option>
+                            <option value="location">Location (A-Z)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Trips</button>
+                        <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                        <button class="filter-btn" data-filter="cancelled">Cancelled</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trips Table -->
+            <div class="trips-table-container">
+                <table class="trips-table" id="tripsTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="id">Trip ID <span class="sort-arrow">⇅</span></th>
+                            <th data-sort="name">Trip Name <span class="sort-arrow">⇅</span></th>
+                            <th data-sort="date">Trip Date <span class="sort-arrow">⇅</span></th>
+                            <th data-sort="location">Location <span class="sort-arrow">⇅</span></th>
+                            <th data-sort="cost">Cost <span class="sort-arrow">⇅</span></th>
+                            <th data-sort="status">Status <span class="sort-arrow">⇅</span></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tripsTableBody">
+                        <tr data-status="upcoming" data-id="TRP001">
+                            <td class="trip-id">TRP001</td>
+                            <td class="trip-name">🇫🇷 Paris Adventure</td>
+                            <td class="trip-date" data-date="2024-12-15">Dec 15, 2024</td>
+                            <td class="trip-location">Paris, France</td>
+                            <td class="trip-cost" data-cost="1890">$1,890</td>
+                            <td class="trip-status">
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn secondary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr data-status="upcoming" data-id="TRP002">
+                            <td class="trip-id">TRP002</td>
+                            <td class="trip-name">🇯🇵 Tokyo Explorer</td>
+                            <td class="trip-date" data-date="2025-01-20">Jan 20, 2025</td>
+                            <td class="trip-location">Tokyo, Japan</td>
+                            <td class="trip-cost" data-cost="2340">$2,340</td>
+                            <td class="trip-status">
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn secondary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr data-status="completed" data-id="TRP003">
+                            <td class="trip-id">TRP003</td>
+                            <td class="trip-name">🇬🇧 London Discovery</td>
+                            <td class="trip-date" data-date="2024-08-10">Aug 10, 2024</td>
+                            <td class="trip-location">London, UK</td>
+                            <td class="trip-cost" data-cost="1560">$1,560</td>
+                            <td class="trip-status">
+                                <span class="status-badge completed">Completed</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn tertiary">Review</button>
+                            </td>
+                        </tr>
+                        <tr data-status="upcoming" data-id="TRP004">
+                            <td class="trip-id">TRP004</td>
+                            <td class="trip-name">🇦🇪 Dubai Luxury</td>
+                            <td class="trip-date" data-date="2024-11-30">Nov 30, 2024</td>
+                            <td class="trip-location">Dubai, UAE</td>
+                            <td class="trip-cost" data-cost="3200">$3,200</td>
+                            <td class="trip-status">
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn secondary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr data-status="completed" data-id="TRP005">
+                            <td class="trip-id">TRP005</td>
+                            <td class="trip-name">🇲🇽 Mexico Beach</td>
+                            <td class="trip-date" data-date="2024-06-22">Jun 22, 2024</td>
+                            <td class="trip-location">Cancun, Mexico</td>
+                            <td class="trip-cost" data-cost="980">$980</td>
+                            <td class="trip-status">
+                                <span class="status-badge completed">Completed</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn tertiary">Review</button>
+                            </td>
+                        </tr>
+                        <tr data-status="cancelled" data-id="TRP006">
+                            <td class="trip-id">TRP006</td>
+                            <td class="trip-name">🇱🇧 Lebanon Heritage</td>
+                            <td class="trip-date" data-date="2024-09-15">Sep 15, 2024</td>
+                            <td class="trip-location">Beirut, Lebanon</td>
+                            <td class="trip-cost" data-cost="1200">$1,200</td>
+                            <td class="trip-status">
+                                <span class="status-badge cancelled">Cancelled</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn danger">Refund</button>
+                            </td>
+                        </tr>
+                        <tr data-status="upcoming" data-id="TRP007">
+                            <td class="trip-id">TRP007</td>
+                            <td class="trip-name">🇪🇸 Spanish Coast</td>
+                            <td class="trip-date" data-date="2025-03-10">Mar 10, 2025</td>
+                            <td class="trip-location">Barcelona, Spain</td>
+                            <td class="trip-cost" data-cost="1650">$1,650</td>
+                            <td class="trip-status">
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn secondary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr data-status="upcoming" data-id="TRP008">
+                            <td class="trip-id">TRP008</td>
+                            <td class="trip-name">🇬🇷 Greek Islands</td>
+                            <td class="trip-date" data-date="2025-05-18">May 18, 2025</td>
+                            <td class="trip-location">Santorini, Greece</td>
+                            <td class="trip-cost" data-cost="2100">$2,100</td>
+                            <td class="trip-status">
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </td>
+                            <td class="trip-actions">
+                                <button class="action-btn primary">View Details</button>
+                                <button class="action-btn secondary">Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Add New Trip Button -->
+            <div class="add-trip-section">
+                <button class="add-trip-btn" id="addTripBtn">
+                    <span class="plus-icon">+</span>
+                    Add New Trip
+                </button>
+            </div>
+
+            <!-- Stats Summary -->
+            <div class="stats-summary">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalTrips">8</span>
+                    <span class="stat-label">Total Trips</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="upcomingTrips">5</span>
+                    <span class="stat-label">Upcoming</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="completedTrips">2</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalSpent">$15,920</span>
+                    <span class="stat-label">Total Spent</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

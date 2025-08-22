@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="style/10623610.png">
+    <link rel="stylesheet" href="style/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>YouTravel - Settings</title>
+    <script defer src="scripts/settings.js"></script>
+</head>
+<body>
+    <!-- Mobile menu toggle -->
+    <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="profile-info">
+                <h2>Welcome Back!</h2>
+                <p>Travel Enthusiast</p>
+                <p>Member since 2023</p>
+                <div class="balance">Balance: $2,450</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="trips.html" class="nav-link">My Trips</a></li>
+                    <li><a href="#" class="nav-link active">Settings</a></li>
+                    <li><a href="login.html" class="nav-link">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header-section">
+                <h1>Settings</h1>
+                <p class="subtitle">Customize your travel experience and manage your account</p>
+            </div>
+
+            <!-- Settings Navigation Tabs -->
+            <div class="settings-tabs">
+                <button class="tab-btn active" data-tab="profile">👤 Profile</button>
+                <button class="tab-btn" data-tab="preferences">⚙️ Preferences</button>
+                <button class="tab-btn" data-tab="notifications">🔔 Notifications</button>
+                <button class="tab-btn" data-tab="privacy">🔒 Privacy</button>
+                <button class="tab-btn" data-tab="billing">💳 Billing</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="tab-content active" id="profile-tab">
+                <div class="settings-section">
+                    <h2>Profile Information</h2>
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <div class="avatar-circle">
+                                <span class="avatar-initials">JD</span>
+                                <button class="avatar-upload" aria-label="Upload profile picture">📷</button>
+                            </div>
+                        </div>
+                        <div class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" value="John" placeholder="Enter first name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" value="Doe" placeholder="Enter last name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" value="john.doe@example.com" placeholder="Enter email">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" value="+1 (555) 123-4567" placeholder="Enter phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthDate">Date of Birth</label>
+                                    <input type="date" id="birthDate" value="1990-05-15">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" rows="3" placeholder="Enter your address">123 Main Street, New York, NY 10001</textarea>
+                            </div>
+                            <button class="save-btn primary">Save Profile Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Change Password</h2>
+                    <div class="password-form">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" placeholder="Enter current password">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                            </div>
+                        </div>
+                        <div class="password-requirements">
+                            <p>Password must contain:</p>
+                            <ul>
+                                <li class="req-item" data-req="length">At least 8 characters</li>
+                                <li class="req-item" data-req="uppercase">One uppercase letter</li>
+                                <li class="req-item" data-req="lowercase">One lowercase letter</li>
+                                <li class="req-item" data-req="number">One number</li>
+                                <li class="req-item" data-req="special">One special character</li>
+                            </ul>
+                        </div>
+                        <button class="save-btn secondary">Update Password</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="preferences-tab">
+                <div class="settings-section">
+                    <h2>Travel Preferences</h2>
+                    <div class="preferences-grid">
+                        <div class="preference-card">
+                            <h3>🌍 Preferred Destinations</h3>
+                            <div class="destination-tags">
+                                <span class="tag active">Europe</span>
+                                <span class="tag active">Asia</span>
+                                <span class="tag">North America</span>
+                                <span class="tag">South America</span>
+                                <span class="tag active">Africa</span>
+                                <span class="tag">Oceania</span>
+                            </div>
+                        </div>
+                        
+                        <div class="preference-card">
+                            <h3>✈️ Travel Class</h3>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="travelClass" value="economy">
+                                    <span class="radio-custom"></span>
+                                    Economy
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="travelClass" value="premium" checked>
+                                    <span class="radio-custom"></span>
+                                    Premium Economy
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="travelClass" value="business">
+                                    <span class="radio-custom"></span>
+                                    Business
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="travelClass" value="first">
+                                    <span class="radio-custom"></span>
+                                    First Class
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="preference-card">
+                            <h3>🏨 Accommodation Type</h3>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="accommodation" value="hotel" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Hotels
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="accommodation" value="resort" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Resorts
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="accommodation" value="apartment">
+                                    <span class="checkbox-custom"></span>
+                                    Apartments
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="accommodation" value="hostel">
+                                    <span class="checkbox-custom"></span>
+                                    Hostels
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="preference-card">
+                            <h3>🍽️ Dietary Preferences</h3>
+                            <select class="custom-select" id="dietaryPref">
+                                <option value="none">No restrictions</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="vegan" selected>Vegan</option>
+                                <option value="gluten-free">Gluten-free</option>
+                                <option value="kosher">Kosher</option>
+                                <option value="halal">Halal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="save-btn primary">Save Preferences</button>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Language & Currency</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="language">Language</label>
+                            <select id="language" class="custom-select">
+                                <option value="en" selected>English</option>
+                                <option value="fr">Français</option>
+                                <option value="es">Español</option>
+                                <option value="de">Deutsch</option>
+                                <option value="it">Italiano</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currency">Currency</label>
+                            <select id="currency" class="custom-select">
+                                <option value="usd" selected>USD ($)</option>
+                                <option value="eur">EUR (€)</option>
+                                <option value="gbp">GBP (£)</option>
+                                <option value="jpy">JPY (¥)</option>
+                                <option value="cad">CAD ($)</option>
+                                <option value="lbp">LBP (ل.ل)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="notifications-tab">
+                <div class="settings-section">
+                    <h2>Notification Preferences</h2>
+                    <div class="notifications-grid">
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>📧 Email Notifications</h3>
+                                <p>Receive updates about your bookings and special offers</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>📱 Push Notifications</h3>
+                                <p>Get real-time alerts on your mobile device</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>💬 SMS Notifications</h3>
+                                <p>Receive important updates via text message</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>🎯 Marketing Communications</h3>
+                                <p>Get personalized travel deals and promotions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>⏰ Booking Reminders</h3>
+                                <p>Reminders for upcoming trips and check-ins</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>💰 Price Drop Alerts</h3>
+                                <p>Get notified when prices drop for your saved destinations</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="privacy-tab">
+                <div class="settings-section">
+                    <h2>Privacy Settings</h2>
+                    <div class="privacy-grid">
+                        <div class="privacy-item">
+                            <div class="privacy-info">
+                                <h3>🔍 Profile Visibility</h3>
+                                <p>Control who can see your travel profile and reviews</p>
+                            </div>
+                            <select class="custom-select">
+                                <option value="public">Public</option>
+                                <option value="friends" selected>Friends Only</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
+
+                        <div class="privacy-item">
+                            <div class="privacy-info">
+                                <h3>📊 Data Collection</h3>
+                                <p>Allow us to collect analytics data to improve your experience</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="privacy-item">
+                            <div class="privacy-info">
+                                <h3>🎯 Personalized Ads</h3>
+                                <p>Show ads based on your travel preferences and history</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="privacy-item">
+                            <div class="privacy-info">
+                                <h3>📍 Location Tracking</h3>
+                                <p>Use your location to provide relevant travel suggestions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="data-management">
+                        <h3>Data Management</h3>
+                        <div class="data-actions">
+                            <button class="action-btn secondary">📥 Download My Data</button>
+                            <button class="action-btn tertiary">🔄 Clear Search History</button>
+                            <button class="action-btn danger">🗑️ Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="billing-tab">
+                <div class="settings-section">
+                    <h2>Payment Methods</h2>
+                    <div class="payment-methods">
+                        <div class="payment-card active">
+                            <div class="card-info">
+                                <div class="card-type">💳 Visa</div>
+                                <div class="card-number">•••• •••• •••• 1234</div>
+                                <div class="card-details">
+                                    <span>Expires 12/26</span>
+                                    <span class="default-badge">Default</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-btn secondary">Edit</button>
+                                <button class="action-btn danger">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="payment-card">
+                            <div class="card-info">
+                                <div class="card-type">💳 Mastercard</div>
+                                <div class="card-number">•••• •••• •••• 5678</div>
+                                <div class="card-details">
+                                    <span>Expires 08/27</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-btn secondary">Edit</button>
+                                <button class="action-btn danger">Remove</button>
+                            </div>
+                        </div>
+
+                        <button class="add-payment-btn">
+                            <span class="plus-icon">+</span>
+                            Add New Payment Method
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Billing History</h2>
+                    <div class="billing-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Oct 15, 2024</td>
+                                    <td>Paris Adventure - Trip Payment</td>
+                                    <td>$1,890.00</td>
+                                    <td><span class="status-badge paid">Paid</span></td>
+                                    <td><button class="action-btn tertiary">📄 Invoice</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Sep 22, 2024</td>
+                                    <td>Tokyo Explorer - Deposit</td>
+                                    <td>$500.00</td>
+                                    <td><span class="status-badge paid">Paid</span></td>
+                                    <td><button class="action-btn tertiary">📄 Invoice</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Aug 10, 2024</td>
+                                    <td>London Discovery - Full Payment</td>
+                                    <td>$1,560.00</td>
+                                    <td><span class="status-badge paid">Paid</span></td>
+                                    <td><button class="action-btn tertiary">📄 Invoice</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Changes Footer -->
+            <div class="settings-footer">
+                <div class="save-status" id="saveStatus"></div>
+                <button class="save-all-btn" id="saveAllBtn">💾 Save All Changes</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
